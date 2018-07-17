@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
-
+    byebug
   end
 
   def create
@@ -10,8 +10,13 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      # TODO flash message username/password combo wasn't valid
+      flash.notice = "Your username/password combination was not correct."
       render :new
     end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to root_path
   end
 end
