@@ -1,5 +1,7 @@
 <h1>Welcome, <%= @user.username %>!</h1>
 
+<p><%= link_to "Create new category", new_admin_category_path %></p>
 
+<p><%= link_to "See all gifs", gifs_path %></p>
 
-<%= link_to "Log Out", logout_path %>
+<p><%= link_to "Log Out", logout_path %></p>

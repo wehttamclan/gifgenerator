@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Gifgenerator</title>
+    <title>GifGenerator</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -11,4 +11,9 @@
   <body>
     <%= yield %>
   </body>
+  <footer>
+    <div id="back">
+      <%= link_to "<< Go Back", :back %>
+    </div>
+  </footer>
 </html>

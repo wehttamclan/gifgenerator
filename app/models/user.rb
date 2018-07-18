@@ -4,4 +4,6 @@ class User < ApplicationRecord
   has_many :favorites
 
   has_secure_password
+
+  enum role: ['default', 'admin']
 end
