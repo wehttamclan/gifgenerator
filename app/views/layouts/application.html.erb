@@ -9,6 +9,31 @@
   </head>
 
   <body>
+    <nav class='nav'>
+      <ul class='nav-links'>
+        <div id='right-nav-links'>
+          <% if current_user %>
+            <% if current_user.admin? %>
+              <li class='nav-link'><a <%= link_to "New category", new_admin_category_path %></a></li>
+              <li class='nav-link'><a <%= link_to "New gif", new_admin_gif_path %></a></li>
+            <% end %>
+            <li class='nav-link'><a <%= link_to "Gifs", gifs_path %></a></li>
+            <li class='nav-link'><a <%= link_to "Categories", '/gifs?sort=category' %> </a></li>
+            <li class='nav-link'><a <%= link_to "Favorites", user_path(current_user) %> </a></li>
+            <li class='nav-link'><a <%= link_to "Log Out", logout_path %></a></li>
+          <% else %>
+            <li class='nav-link'><a <%= link_to "Sign Up", new_user_path, method: :get %> </a></li>
+            <li class='nav-link'><a <%= link_to "Sign In", login_path, method: :get %> </a></li>
+          <% end %>
+        </div>
+      </ul>
+    </nav>
+
+    <% flash.each do |name, msg| %>
+      <div class='centered'>
+        <%= content_tag :div, msg, class: name %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
   <footer>

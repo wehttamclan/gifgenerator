@@ -32,7 +32,7 @@ describe "User visits categories new page" do
       click_on "Create Gif"
 
       expect(current_path).to eq(gifs_path)
-      save_and_open_page
+
       # maybe try capybara xpath to test if image is on the page
       expect(page).to have_xpath("//img[contains(@src,'#{Gif.last.image_path}')]")
       # expect(page).to have_content(Gif.last.category.name) # test for sort params
