@@ -1,13 +1,12 @@
 class GifsController < ApplicationController
-  before_action :require_admin, only: [:new, :create]
 
   def index
     if params[:sort]
-      @gifs = Gif.all.includes(:categories)
+      @categories = Category.all
+      @gifs = Gif.all
     else
-      @gifs = Gif.all.includes(:categories)
+      @gifs = Gif.all
     end
   end
-
 
 end

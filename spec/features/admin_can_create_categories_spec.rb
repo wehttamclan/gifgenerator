@@ -27,20 +27,15 @@ describe "User visits categories new page" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       visit new_admin_gif_path
-
-      select 'simpsons'
+      select 'simpsons', from: 'gif[category_id]'
 
       click_on "Create Gif"
 
       expect(current_path).to eq(gifs_path)
-      expect(page).to have_content(Gif.last)
+      save_and_open_page
+      # maybe try capybara xpath to test if image is on the page
+      expect(page).to have_xpath("//img[contains(@src,'#{Gif.last.image_path}')]")
+      # expect(page).to have_content(Gif.last.category.name) # test for sort params
     end
   end
 end
-
-
-
-    expect(current_path).to eq("/companies/#{@company.id}/jobs/#{Job.last.id}")
-    expect(page).to have_content("ESPN")
-    expect(page).to have_content("Developer")
-    expect(page).to have_content("Denver")

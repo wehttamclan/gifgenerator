@@ -1,5 +1,15 @@
   <body>
-    <% @gifs.each do |gif| %>
-      <%= gif.image_path %>
+    <% if @categories %>
+      <% @categories.each do |category| %>
+      <h2><%= category.name %></h2>
+        <% category.gifs.each do |gif| %>
+          <%= image_tag gif.image_path, {alt: category.name} %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <% @gifs.each do |gif| %>
+      <h2>All Gifs</h2>
+        <%= image_tag gif.image_path, {alt: gif.category.name} %>
+      <% end %>
     <% end %>
   </body>
