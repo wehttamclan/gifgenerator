@@ -7,8 +7,8 @@
         <% end %>
       <% end %>
     <% else %>
+    <h2>All Gifs</h2>
       <% @gifs.each do |gif| %>
-      <h2>All Gifs</h2>
         <%= image_tag gif.image_path, {alt: gif.category.name} %>
       <% end %>
     <% end %>
