@@ -1,5 +1,6 @@
 <h1>Welcome, <%= @user.username %>!</h1>
 <% @favorites.each do |favorite| %>
-  <%= image_tag favorite.image_path %>
-
+  <div class="homepage-gif">
+    <%= image_tag favorite.image_path %>
+  </div>
 <% end %>

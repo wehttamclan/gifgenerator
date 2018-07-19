@@ -1,8 +1,10 @@
 <% if @categories %>
   <% @categories.each do |category| %>
-  <h2><%= category.name %></h2>
+  <h1 class="homepage-gif"><%= category.name.upcase %></h1>
     <% category.gifs.each do |gif| %>
+    <div class="homepage-gif">
       <%= image_tag gif.image_path, {alt: category.name} %>
+    </div>
         <%= form_tag user_favorites_path(current_user) do %>
           <%= hidden_field_tag 'gif', gif.id %>
           <%= submit_tag 'Add Favorite', class: 'gif-id'%>
@@ -12,7 +14,9 @@
 <% else %>
 <h2>All Gifs</h2>
   <% @gifs.each do |gif| %>
+  <div class="homepage-gif">
     <%= image_tag gif.image_path, {alt: gif.category.name} %>
+  </div>
     <%= form_tag user_favorites_path(current_user) do %>
       <%= hidden_field_tag 'gif', gif.id %>
       <%= submit_tag 'Add Favorite', class: 'gif-id'%>
