@@ -1,26 +1,21 @@
-  <% if @categories %>
-    <% @categories.each do |category| %>
-    <h2><%= category.name %></h2>
-      <% category.gifs.each do |gif| %>
-        <%= image_tag gif.image_path, {alt: category.name} %>
-
-          <%= form_tag user_favorites_path(current_user) do %>
-            <%= hidden_field_tag 'gif', gif.id %>
-            <%= submit_tag 'Add Favorite', class: 'gif-id'%>
-          <% end %>
-
-      <% end %>
-    <% end %>
-  <% else %>
-  <h2>All Gifs</h2>
-    <% @gifs.each do |gif| %>
-      <%= image_tag gif.image_path, {alt: gif.category.name} %>
-
-      <%= form_tag user_favorites_path(current_user) do %>
-        <%= hidden_field_tag 'gif', gif.id %>
-        <%= submit_tag 'Add Favorite', class: 'gif-id'%>
-      <% end %>
-
-      <%= render partial: "favorites/form" %>
+<% if @categories %>
+  <% @categories.each do |category| %>
+  <h2><%= category.name %></h2>
+    <% category.gifs.each do |gif| %>
+      <%= image_tag gif.image_path, {alt: category.name} %>
+        <%= form_tag user_favorites_path(current_user) do %>
+          <%= hidden_field_tag 'gif', gif.id %>
+          <%= submit_tag 'Add Favorite', class: 'gif-id'%>
+        <% end %>
     <% end %>
   <% end %>
+<% else %>
+<h2>All Gifs</h2>
+  <% @gifs.each do |gif| %>
+    <%= image_tag gif.image_path, {alt: gif.category.name} %>
+    <%= form_tag user_favorites_path(current_user) do %>
+      <%= hidden_field_tag 'gif', gif.id %>
+      <%= submit_tag 'Add Favorite', class: 'gif-id'%>
+    <% end %>
+  <% end %>
+<% end %>

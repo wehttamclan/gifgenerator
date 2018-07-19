@@ -30,7 +30,6 @@ describe 'user visits gifs_path' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(default_user)
 
       visit user_path(default_user)
-      save_and_open_page
     end
   end
 end

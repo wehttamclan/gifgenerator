@@ -1,5 +1,5 @@
 class Gif < ApplicationRecord
-  validates_presence_of :image_path
+  validates :image_path, uniqueness: true, presence: true
   belongs_to :category
 
   def sort_by_category(param)

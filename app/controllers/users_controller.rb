@@ -4,8 +4,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.includes(:gifs).find(params[:id])
-    @favorites = @user.gifs.all
+    if current_user
+      @user = User.includes(:gifs).find(params[:id])
+      @favorites = @user.gifs.all
+    else
+      render file:'/public/404'
+    end
   end
 
   def create

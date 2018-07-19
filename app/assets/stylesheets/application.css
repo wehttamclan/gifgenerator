@@ -26,16 +26,25 @@
    justify-content: flex-start;
    align-items: center;
    border: 5px solid;
-   background-color: azure;
+   background-color: tomato;
    height: 40px;
  }
 
+ form {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+   margin: 0 5px;
+   font-family: 'Courier New', Courier, monospace;
+ }
+ 
  .nav {
    display: flex;
    justify-content: flex-end;
    align-content: center;
    border: 5px solid black;
-   background-color: azure;
+   background-color: tomato;
  }
 
  .homepage-gif {
@@ -55,6 +64,7 @@
    padding: 8px 4px;
    font-family: 'Chela One', cursive;
  }
+
 
  #back {
    position: absolute;
