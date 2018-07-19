@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @gifs = Gif.all
+    @user = User.includes(:gifs).find(params[:id])
+    @favorites = @user.gifs.all
   end
 
   def create

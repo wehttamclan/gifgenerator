@@ -3,9 +3,9 @@ require "rails_helper"
 describe "User visits categories new page" do
   context "as admin" do
     it "allows admin to fill out form that creates category" do
-	   admin = User.create(username: "matt",
-                         password: "strongword",
-                         role: 1)
+	    admin = User.create(username: "matt",
+                          password: "strongword",
+                          role: 1)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
