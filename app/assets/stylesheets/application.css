@@ -38,7 +38,7 @@
    margin: 0 5px;
    font-family: 'Courier New', Courier, monospace;
  }
- 
+
  .nav {
    display: flex;
    justify-content: flex-end;
@@ -64,7 +64,6 @@
    padding: 8px 4px;
    font-family: 'Chela One', cursive;
  }
-
 
  #back {
    position: absolute;
